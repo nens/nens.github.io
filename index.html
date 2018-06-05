@@ -138,7 +138,7 @@
         const cards = data.map((card, i) => {
             const keyword = keywords[Math.floor(Math.random()*keywords.length)];
             return (
-              <div key={i} className="col-md-4">
+              <div key={i} className="col-md-4" onClick={() => { window.location.href = card.html_url }}>
                 <div className="card mb-4 box-shadow">
                   <img className="card-img-top" src={`https://source.unsplash.com/featured/640x480/?${keyword}`} alt={card.name} />
                   <div className="card-body">
