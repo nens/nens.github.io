@@ -126,9 +126,9 @@
         };
       }
       componentDidMount() {
-        fetch("/nens/")
+        fetch("https://api.github.com/users/nens/repos")
           .then((res) => { 
-            return res.text();
+            return res.json();
           })
           .then((doc) => {
             console.log(doc);
