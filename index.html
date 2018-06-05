@@ -140,7 +140,7 @@
       render() {
         const {data} = this.state;
         const cards = data.map((card, i) => {
-            return (
+            return ([
               <div key={i} className="col-md-4">
                 <div className="card mb-4 box-shadow">
                   <img className="card-img-top" data-src={"https://source.unsplash.com/random/100px225"} alt={card.name} />
@@ -156,11 +156,9 @@
                   </div>
                 </div>
               </div>  
-            );
+            ]);
           });        
-        return (
-          {cards ? cards : null}
-        );
+        return cards;
       }
     }
     ReactDOM.render(<App />, document.getElementById("react-app"));
