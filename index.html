@@ -122,7 +122,7 @@
         };
       }
       componentDidMount() {
-        fetch("https://api.github.com/users/nens/repos")
+        fetch("https://api.github.com/users/nens/repos?per_page=500")
           .then((res) => { 
             return res.json();
           })
