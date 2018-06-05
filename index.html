@@ -118,10 +118,12 @@
       constructor() {
         super();
         this.state = {
-          data: []
+          data: [],
+          filterValue: ""
         };
       }
       componentDidMount() {
+        document.getElementById("filterInput").focus();
         fetch("https://api.github.com/users/nens/repos?per_page=500")
           .then((res) => { 
             return res.json();
@@ -134,8 +136,16 @@
       }
       render() {
         const keywords = ["water", "nature", "space", "green", "flora", "rain", "interior"];
-        const {data} = this.state;
-        const cards = data.map((card, i) => {
+        const {data, filterValue} = this.state;
+
+        const filteredData = data.filter(data => {
+          if (data.name.toLowerCase().indexOf(filterValue.toLowerCase()) > -1) {
+            return data;
+          }
+          return false;
+        });
+
+        const cards = filteredData.map((card, i) => {
             const keyword = keywords[Math.floor(Math.random()*keywords.length)];
             return (
               <div key={i} className="col-md-4">
@@ -157,6 +167,11 @@
 
         return (
           <div className="container">
+            <div className="row form-group">
+              <div className="col-md-12">
+                <input className="form-control" type="text" id="filterInput" onChange={(e) => this.setState({filterValue: e.target.value})} value={filterValue} />
+              </div>
+            </div>
             <div className="row">
               {cards}
             </div>
