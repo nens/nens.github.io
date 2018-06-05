@@ -133,7 +133,7 @@
           });
       }
       render() {
-        const keywords = ["water", "nature", "space", "green", "flora", "rain"];
+        const keywords = ["water", "nature", "space", "green", "flora", "rain", "interior"];
         const {data} = this.state;
         const cards = data.filter(card => !card.).map((card, i) => {
             const keyword = keywords[Math.floor(Math.random()*keywords.length)];
