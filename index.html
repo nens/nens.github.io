@@ -1,1 +1,163 @@
-test
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./favicon.png">
+
+    <title>Nelen &amp; Schuurmans</title>
+
+    <link href="./static/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      :root {
+        --jumbotron-padding-y: 3rem;
+      }
+
+      .jumbotron {
+        padding-top: var(--jumbotron-padding-y);
+        padding-bottom: var(--jumbotron-padding-y);
+        margin-bottom: 0;
+        background-color: #fff;
+      }
+      @media (min-width: 768px) {
+        .jumbotron {
+          padding-top: calc(var(--jumbotron-padding-y) * 2);
+          padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+        }
+      }
+
+      .jumbotron p:last-child {
+        margin-bottom: 0;
+      }
+
+      .jumbotron-heading {
+        font-weight: 300;
+      }
+
+      .jumbotron .container {
+        max-width: 40rem;
+      }
+
+      footer {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      footer p {
+        margin-bottom: .25rem;
+      }
+
+      .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">These projects are our open sourced software contributions. Enjoy!</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <ul class="list-unstyled">
+                <li><a href="https://twitter.com/nelenschuurmans" class="text-white">Follow us Twitter</a></li>
+                <li><a href="mailto:secretariaat@nelen-schuurmans.nl" class="text-white">Email us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>Nelen &amp; Schuurmans</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row" id="react-app"></div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>2018-2019 Nelen &amp; Schuurmans</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="./static/bootstrap.min.js"></script>
+    <script src="./static/holder.min.js"></script>
+    <script src="./static/popper.min.js"></script>
+
+
+    <script type="text/babel">
+    class App extends React.Component {
+      constructor() {
+        super();
+        this.state = {
+        };
+      }
+      componentDidMount() {
+        fetch("/nens/")
+          .then((res) => { 
+            return res.text();
+          })
+          .then((doc) => {
+            console.log(doc);
+          });
+      }
+      render() {
+        return (
+            <div className="col-md-4">
+              <div className="card mb-4 box-shadow">
+                <img className="card-img-top" data-src={"holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"} alt="Card image cap" />
+                <div className="card-body">
+                  <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
+                      <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small className="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>        
+        );
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById("react-app"));
+  </script>
+
+
+
+  </body>
+</html>
