@@ -134,10 +134,9 @@
       }
       render() {
         const keywords = ["water", "nature", "space"];
-        const keyword = keywords[Math.floor(Math.random()*keywords.length)];
-
         const {data} = this.state;
         const cards = data.map((card, i) => {
+            const keyword = keywords[Math.floor(Math.random()*keywords.length)];
             return (
               <div key={i} className="col-md-4">
                 <div className="card mb-4 box-shadow">
