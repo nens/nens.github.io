@@ -133,16 +133,16 @@
           });
       }
       render() {
-        const keywords = ["water", "nature", "space"];
+        const keywords = ["water", "nature", "space", "green", "flora", "rain"];
         const {data} = this.state;
-        const cards = data.map((card, i) => {
+        const cards = data.filter(card => !card.).map((card, i) => {
             const keyword = keywords[Math.floor(Math.random()*keywords.length)];
             return (
               <div key={i} className="col-md-4">
                 <div className="card mb-4 box-shadow">
                   <img className="card-img-top" src={`https://source.unsplash.com/featured/640x480/?${keyword}`} alt={card.name} />
                   <div className="card-body">
-                    <p className="card-text">{card.description}</p>
+                    <p className="card-text"><strong>{card.name}</strong><br/>{card.description}</p>
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="btn-group">
                         <button type="button" onClick={() => { window.location.href = card.html_url }} className="btn btn-sm btn-outline-secondary">View</button>
