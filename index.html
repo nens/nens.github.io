@@ -133,12 +133,15 @@
           });
       }
       render() {
+        const keywords = ["water", "nature", "space"];
+        const keyword = keywords[Math.floor(Math.random()*keywords.length)];
+
         const {data} = this.state;
         const cards = data.map((card, i) => {
             return (
               <div key={i} className="col-md-4">
                 <div className="card mb-4 box-shadow">
-                  <img className="card-img-top" src={"https://source.unsplash.com/random/100px225"} alt={card.name} />
+                  <img className="card-img-top" src={`https://source.unsplash.com/features/290x190/?${keyword}`} alt={card.name} />
                   <div className="card-body">
                     <p className="card-text">{card.description}</p>
                     <div className="d-flex justify-content-between align-items-center">
